@@ -25,14 +25,12 @@ POLICY
 }
 
 # eks policy attachment
-
 resource "aws_iam_role_policy_attachment" "aws-eks-cluster-AmazonEKSClusterPolicy" {
   role       = aws_iam_role.aws-eks-cluster.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
-# bare minimum requirement of eks
-
+# EKS Cluster creation
 resource "aws_eks_cluster" "aws-eks-cluster" {
   name     = "aws-eks-cluster"
   role_arn = aws_iam_role.aws-eks-cluster.arn
